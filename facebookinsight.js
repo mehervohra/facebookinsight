@@ -13,7 +13,7 @@ if (Meteor.isClient) {
   }
 
     Template.hello.events({
-    'new-task': function () {
+    'frm1': function () {
       // increment the counter when button is clicked
       // batch example
       $.post(
@@ -27,7 +27,6 @@ if (Meteor.isClient) {
       }
         })
     }
-
 
 if (Meteor.isServer) {
   Meteor.startup(function () {

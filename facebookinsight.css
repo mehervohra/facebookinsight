@@ -1,1 +1,15 @@
 /* CSS declarations go here */
+h1 {
+    display: block;
+    font-size: 30px;
+    font-family: helvetica;
+    font-weight: bold;
+    margin-left:10px;
+}
+
+body {
+    font-family:helvetica;
+    font-size:15px;
+    margin-left:600px;
+    margin-top:300px;
+}
