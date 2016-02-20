@@ -8,13 +8,26 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.hello.events({
+  function myFunction() {
+      document.getElementById("frm1").submit();
+  }
+
+    Template.hello.events({
     'click button': function () {
       // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
+      // batch example
+      $.post(
+        'https://apiv2.indico.io/texttags/batch?key=39df039014643b8d9d6ccbbb73e5810c',
+        JSON.stringify({
+          'data': [
+            "raw input"
+          ]
+        })
+      ).then(function(res) {window.alert(res) });
+      }
+        })
     }
-  });
-}
+
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
