@@ -13,7 +13,7 @@ if (Meteor.isClient) {
   }
 
     Template.hello.events({
-    'click button': function () {
+    'new-task': function () {
       // increment the counter when button is clicked
       // batch example
       $.post(
