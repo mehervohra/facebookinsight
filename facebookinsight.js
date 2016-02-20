@@ -1,6 +1,6 @@
 if (Meteor.isClient) {
   var fbAccessToken = undefined;
-  
+
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -71,6 +71,7 @@ if (Meteor.isClient) {
       // increment the counter when button is clicked
       // batch example
       event.preventDefault();
+      console.log(fbAccessToken);
       console.log(event)
       $.post(
         'https://apiv2.indico.io/texttags/batch?key=39df039014643b8d9d6ccbbb73e5810c',
