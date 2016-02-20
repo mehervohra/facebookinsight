@@ -35,7 +35,7 @@ if (Meteor.isClient) {
 
   };
 
-  // Load the SDK asynchronously
+  // Load the Facebook SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
