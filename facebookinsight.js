@@ -8,14 +8,12 @@ if (Meteor.isClient) {
     }
   });
 
-  function myFunction() {
-      document.getElementById("frm1").submit();
-  }
-
-    Template.hello.events({
-    'frm1': function () {
+    Template.body.events({
+    'submit .new-task': function (event) {
       // increment the counter when button is clicked
       // batch example
+      event.preventDefault();
+      console.log(event)
       $.post(
         'https://apiv2.indico.io/texttags/batch?key=39df039014643b8d9d6ccbbb73e5810c',
         JSON.stringify({
