@@ -57,6 +57,12 @@ if (Meteor.isClient) {
     });
   }
 
+  function getFeed() {
+    FB.api('/me/feed', function(response) {
+      console.log(JSON.stringify(response));
+    });
+  }
+
   // counter starts at 0
   Session.setDefault('counter', 0);
 
@@ -71,6 +77,7 @@ if (Meteor.isClient) {
       // increment the counter when button is clicked
       // batch example
       event.preventDefault();
+      getFeed();
       console.log(fbAccessToken);
       console.log(event)
       $.post(
