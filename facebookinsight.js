@@ -94,23 +94,39 @@ if (Meteor.isClient) {
       })
     ).then(function(res) {
         console.log(res);
-      var sortedResults = sortResults(JSON.parse(res));
-      console.log('Sorted Results: ' + JSON.stringify(sortedResults));
+      var formatted = formatResults(JSON.parse(res));
+//        console.log(sortedResults);
+        console.log('Formatted Results: ' + JSON.stringify(formatted));
       // TODO display the sorted results to the webpage!
+        
+       var sorted =  sortResults(JSON.parse(formatted));
+        console.log(JSON.stringify(sorted));
     });
   }
 
-    function sortResults(results) {
+    // returns data in easier to access format
+    function formatResults(results) {
         console.log(results);
         sentiment = results.results.sentimenthq.results[0]; // type number
         personality = results.results.personality.results[0]; // type Object
 
-        var sortable = [];
+        var formatted = {}
 
         for (var keyword in results.results) {
-            sortable.push([keyword, results.results[keyword].results[0]]);
+            formatted[keyword] = results.results[keyword].results[0];
         }
-        return sortable;
+        return formatted;
+    }
+    
+    // sorts 
+    function sortResults(results) {
+        var sorted = {};
+        
+        for (item in results) {
+            
+        }
+        
+        
     }
     
     /*// counter starts at 0
