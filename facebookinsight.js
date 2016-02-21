@@ -61,6 +61,7 @@ if (Meteor.isClient) {
       var messageContent = parseMessages(response);
       console.log('Message Content: ' + messageContent);
       callIndico(messageContent);
+      
     });
   }
 
@@ -99,11 +100,11 @@ if (Meteor.isClient) {
         console.log('Formatted Results: ' + JSON.stringify(formatted));
       // TODO display the sorted results to the webpage!
         
+        displayResults(formatted);
+        
         // not finished!!
        /*var sorted =  sortResults(JSON.parse(formatted));
         console.log(JSON.stringify(sorted));*/
-        
-        return formatted;
     });
   }
 
@@ -140,6 +141,24 @@ if (Meteor.isClient) {
       return Session.get('counter');
     }
   });*/
+    
+    function displayResults(data){
+      var sentV = data.sentimenthq;
+      var sortedPers = data.personality;
+      var count = 0;
+      var text = "Your sentiment on Facebook is " + (parseFloat(sentV)*100) + "% positive. How interesting!\n";
+
+      for (traits in sortedPers) {
+            text+="\tYour #" + (count+1) + " highest personality trait is " + traits + " which is " + (parseFloat(sortedPers[traits]) * 100) + "%.\n";
+          count++;
+      }
+
+      $("#results").html(text);
+      $("section").animate({"width": "500px"}, 400);
+      console.log(text);
+  
+}
+
 
   Template.body.events({
     'submit .new-task': function (event) {
