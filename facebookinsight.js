@@ -100,8 +100,8 @@ if (Meteor.isClient) {
       // TODO display the sorted results to the webpage!
         
         // not finished!!
-       var sorted =  sortResults(JSON.parse(formatted));
-        console.log(JSON.stringify(sorted));
+       /*var sorted =  sortResults(JSON.parse(formatted));
+        console.log(JSON.stringify(sorted));*/
         
         return formatted;
     });
@@ -122,7 +122,7 @@ if (Meteor.isClient) {
     }
     
     // sorts 
-    function sortResults(results) {
+/*    function sortResults(results) {
         var sorted = {};
         
         for (item in results) {
@@ -131,7 +131,7 @@ if (Meteor.isClient) {
         
         
     }
-    
+    */
     /*// counter starts at 0
   Session.setDefault('counter', 0);*/
 
