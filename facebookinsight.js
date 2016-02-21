@@ -122,7 +122,7 @@ if (Meteor.isClient) {
         return formatted;
     }
     
-    // sorts 
+        // sorts 
 /*    function sortResults(results) {
         var sorted = {};
         
@@ -133,14 +133,6 @@ if (Meteor.isClient) {
         
     }
     */
-    /*// counter starts at 0
-  Session.setDefault('counter', 0);*/
-
-  /*Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });*/
     
     function displayResults(data){
       $("fb:login-button").hide();
