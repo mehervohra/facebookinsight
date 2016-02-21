@@ -57,9 +57,49 @@ if (Meteor.isClient) {
     });
   }
 
-  function getFeed() {
-    FB.api('/me/feed', function(response) {
-      console.log(JSON.stringify(response));
+  function getPosts() {
+    FB.api('/me/posts', function(response) {
+      var messageContent = parseMessages(response);
+      console.log('Message Content: ' + messageContent);
+      callIndico(messageContent);
+    });
+  }
+
+  function parseMessages(response) {
+    var content = '';
+    for (postIdx in response.data) {
+      post = response.data[postIdx];
+      if (post.message) {
+        content += ' ' + post.message;
+      }
+    }
+    return content;
+  }
+
+  function callIndico(content) {
+    $.post(
+      'https://apiv2.indico.io/texttags/batch?key=39df039014643b8d9d6ccbbb73e5810c',
+      JSON.stringify({
+        'data': [
+          JSON.stringify(content)
+        ]
+      })
+    ).then(function(res) {
+      var sortedResults = sortResults(JSON.parse(res));
+      console.log('Sorted Results: ' + JSON.stringify(sortedResults));
+    });
+  }
+
+  function sortResults(results) {
+    var actualResults = results.results[0];
+    var sortable = [];
+
+    for (var keyword in actualResults) {
+      sortable.push([keyword, actualResults[keyword]]);
+    }
+
+    return sortable.sort(function(a, b) {
+      return b[1] - a[1]
     });
   }
 
@@ -74,20 +114,18 @@ if (Meteor.isClient) {
 
     Template.body.events({
     'submit .new-task': function (event) {
-      // increment the counter when button is clicked
-      // batch example
       event.preventDefault();
-      getFeed();
-      console.log(fbAccessToken);
-      console.log(event)
-      $.post(
+      getPosts();
+      /*$.post(
         'https://apiv2.indico.io/texttags/batch?key=39df039014643b8d9d6ccbbb73e5810c',
         JSON.stringify({
           'data': [
             "raw input"
           ]
         })
-      ).then(function(res) {window.alert(res) });
+      ).then(function(res) {
+        //window.alert(res)
+      });*/
       }
         })
     }
