@@ -21,7 +21,7 @@ section{
 }
 
 body{
-    background-image: url('footer_loylas.png')
+    background-image: url('footer_loylas.png');
     background-repeat: repeat;
     font-family: 'Roboto', sans-serif;
     font-size:12px;
