@@ -78,7 +78,7 @@ if (Meteor.isClient) {
 
   function callIndico(content) {
     $.post(
-      'https://apiv2.indico.io/texttags/batch?key=39df039014643b8d9d6ccbbb73e5810c',
+      'https://apiv2.indico.io/sentimenthq/batch?key=680e518e7ad121cdecba4a3a56d1bfe7',
       JSON.stringify({
         'data': [
           JSON.stringify(content)
