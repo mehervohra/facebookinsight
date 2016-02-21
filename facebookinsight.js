@@ -7,6 +7,7 @@ if (Meteor.isClient) {
     if (response.status === 'connected') {
       fbAccessToken = response.authResponse.accessToken;
       testAPI();
+        getPosts();
     } else if (response.status === 'not_authorized') {
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
@@ -24,7 +25,7 @@ if (Meteor.isClient) {
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1648899562040592',
+    appId      : '1957057311186486',
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
