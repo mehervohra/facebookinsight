@@ -1,22 +1,30 @@
 <head>
   <title>Facebook Insights</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <h1>Facebook Insights</h1>
+  <section>
+      <h1>facebook insights</h1>
 
-  <fb:login-button scope="public_profile,email,user_posts" onlogin="checkLoginState();">
-  </fb:login-button>
+      <p>
+          <fb:login-button scope="public_profile,email,user_posts" onlogin="checkLoginState();"></fb:login-button>
+      </p>
 
-  <div id="status">
-  </div>
+      <div id="status">
+      </div>
 
-  {{> hello}}
+      {{> hello}}
+    </section>
 </body>
 
-<template name="hello">
+<!--TODO change template name later-->
+<template name="hello"> 
   <form class="new-task">
+<!--
   Sentence to analyse: <input type="text" name="fname"><br>
-  <button type="button" value="Submit">
+  <input type="button" value="Submit" >
+-->      
+      <button type="button" value="">Analyze your profile now!</button>
 </form>
 </template>
