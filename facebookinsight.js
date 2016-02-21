@@ -6,7 +6,9 @@ if (Meteor.isClient) {
     console.log(response);
     if (response.status === 'connected') {
       fbAccessToken = response.authResponse.accessToken;
+      $("#fbutton").hide();
       testAPI();
+      
     } else if (response.status === 'not_authorized') {
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
@@ -122,7 +124,7 @@ if (Meteor.isClient) {
         return formatted;
     }
     
-        // sorts 
+        // TODO sort data to show things in descending order
 /*    function sortResults(results) {
         var sorted = {};
         
@@ -135,7 +137,6 @@ if (Meteor.isClient) {
     */
     
     function displayResults(data){
-      $("fb:login-button").hide();
       var sentV = data.sentimenthq;
       var sortedPers = data.personality;
       var count = 0;
