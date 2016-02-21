@@ -6,10 +6,6 @@ h1 {
     color: #3b5998;
 }
 
-p {
-    text-align: center;
-}
-
 section{
     padding-top:5px;
     padding: 15px;
@@ -22,8 +18,10 @@ section{
 }
 
 body{
-    background-image: url("footer_lodyas.png");
-    background-repeat: repeat;
+/*    background-image: url("footer_lodyas.png");
+    background-repeat: repeat; */
+    background-color: #dfe3ee;
     font-family: 'Roboto', sans-serif;
+    text-align: center;
     font-size:12px;
 }
