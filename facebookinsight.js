@@ -7,6 +7,7 @@ if (Meteor.isClient) {
     if (response.status === 'connected') {
       fbAccessToken = response.authResponse.accessToken;
       testAPI();
+      getFeed();
     } else if (response.status === 'not_authorized') {
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
@@ -24,7 +25,7 @@ if (Meteor.isClient) {
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1648899562040592',
+    appId      : '1957057311186486', 
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -46,8 +47,7 @@ if (Meteor.isClient) {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
+
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
@@ -58,10 +58,12 @@ if (Meteor.isClient) {
   }
 
   function getFeed() {
-    FB.api('/me/feed', function(response) {
+    FB.api('/me/posts', function(response) {
+        console.log(response);
       console.log(JSON.stringify(response));
     });
   }
+
 
   // counter starts at 0
   Session.setDefault('counter', 0);
