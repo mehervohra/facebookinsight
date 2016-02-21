@@ -11,6 +11,7 @@ p {
 }
 
 section{
+    padding-top:5px;
     padding: 15px;
     background-color: #ffffff;
     border: 4px solid #3b5998;
@@ -21,7 +22,7 @@ section{
 }
 
 body{
-    background-image: url('footer_loylas.png');
+    background-image: url("footer_lodyas.png");
     background-repeat: repeat;
     font-family: 'Roboto', sans-serif;
     font-size:12px;
