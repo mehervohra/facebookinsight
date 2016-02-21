@@ -99,8 +99,11 @@ if (Meteor.isClient) {
         console.log('Formatted Results: ' + JSON.stringify(formatted));
       // TODO display the sorted results to the webpage!
         
+        // not finished!!
        var sorted =  sortResults(JSON.parse(formatted));
         console.log(JSON.stringify(sorted));
+        
+        return formatted;
     });
   }
 
