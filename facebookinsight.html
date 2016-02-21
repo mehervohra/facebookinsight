@@ -3,15 +3,17 @@
 </head>
 
 <body>
-  <h1>Facebook Insights</h1>
+  <section>
+      <h1>Facebook Insights</h1>
 
-  <fb:login-button scope="public_profile,email,user_posts" onlogin="checkLoginState();">
-  </fb:login-button>
+      <fb:login-button scope="public_profile,email,user_posts" onlogin="checkLoginState();">
+      </fb:login-button>
 
-  <div id="status">
-  </div>
+      <div id="status">
+      </div>
 
-  {{> hello}}
+      {{> hello}}
+    </section>
 </body>
 
 <template name="hello">
