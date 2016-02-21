@@ -5,10 +5,15 @@ h1 {
     font-family: helvetica;
     font-weight: bold;
     margin-left:10px;
+    color: #3b5998;
+}
+
+img {
+    text-align: center;
 }
 
 body {
-    color: #3b5998;
+    width: 300px;
     font-family:helvetica;
     font-size:15px;
     margin: auto;
