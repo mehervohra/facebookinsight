@@ -7,7 +7,7 @@ if (Meteor.isClient) {
     if (response.status === 'connected') {
       fbAccessToken = response.authResponse.accessToken;
       testAPI();
-        getPosts();
+        getPosts(); // testing
     } else if (response.status === 'not_authorized') {
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
@@ -53,8 +53,8 @@ if (Meteor.isClient) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+/*      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!'; */
     });
   }
 
@@ -68,12 +68,20 @@ if (Meteor.isClient) {
 
   function parseMessages(response) {
     var content = '';
-    for (postIdx in response.data) {
-      post = response.data[postIdx];
-      if (post.message) {
-        content += ' ' + post.message;
-      }
-    }
+    console.log('array len: ' + response.data.length);
+    var count = 0;
+      
+//    while (count < 20) {  
+        for (postIdx in response.data) {
+          post = response.data[postIdx];
+          if (post.message) {
+            content += ' ' + post.message.replace(/(\r\n|\n|\r)/gm, ' ');
+            count++;
+          }
+        }
+        console.log(response.paging.next);
+//    }
+      
     return content;
   }
 
