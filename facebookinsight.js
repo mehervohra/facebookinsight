@@ -87,6 +87,7 @@ if (Meteor.isClient) {
     ).then(function(res) {
       var sortedResults = sortResults(JSON.parse(res));
       console.log('Sorted Results: ' + JSON.stringify(sortedResults));
+      // TODO display the sorted results to the webpage!
     });
   }
 
@@ -112,23 +113,13 @@ if (Meteor.isClient) {
     }
   });
 
-    Template.body.events({
+  Template.body.events({
     'submit .new-task': function (event) {
       event.preventDefault();
       getPosts();
-      /*$.post(
-        'https://apiv2.indico.io/texttags/batch?key=39df039014643b8d9d6ccbbb73e5810c',
-        JSON.stringify({
-          'data': [
-            "raw input"
-          ]
-        })
-      ).then(function(res) {
-        //window.alert(res)
-      });*/
-      }
-        })
     }
+  });
+}
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
