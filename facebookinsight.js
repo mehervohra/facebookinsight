@@ -139,10 +139,10 @@ if (Meteor.isClient) {
       var sentV = data.sentimenthq;
       var sortedPers = data.personality;
       var count = 0;
-      var text = "Your sentiment on Facebook is " + (parseFloat(sentV)*100).floor() + "% positive. How interesting!\n";
+      var text = "Your sentiment on Facebook is " + Math.floor((parseFloat(sentV)*100)) + "% positive. How interesting!<br>";
 
       for (traits in sortedPers) {
-            text+="\tYour " + traits + " which is in the " + (parseFloat(sortedPers[traits]).floor() * 100) + "th percentile.\n";
+            text+="Your " + traits + " which is in the " + (Math.floor(parseFloat(sortedPers[traits]) * 100)) + "th percentile.<br>";
           count++;
       }
 
