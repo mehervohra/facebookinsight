@@ -143,6 +143,7 @@ if (Meteor.isClient) {
   });*/
     
     function displayResults(data){
+      $("fb:login-button").hide();
       var sentV = data.sentimenthq;
       var sortedPers = data.personality;
       var count = 0;
